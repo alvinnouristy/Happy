@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Untuk Firda Amelia ❤️</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -14,7 +14,7 @@
             box-sizing: border-box;
         }
         body {
-            background: radial-gradient(circle at center, #2b1029 0%, #0a0a0a 100%);
+            background: radial-gradient(circle at center, #2e1529 0%, #0a0307 100%);
             color: white;
             font-family: 'Poppins', sans-serif;
             overflow: hidden; 
@@ -33,18 +33,55 @@
             justify-content: center;
             width: 100%;
             height: 100%;
-            transition: opacity 0.5s ease-out; 
+            transition: opacity 0.8s ease-out; 
             padding: 20px;
+            z-index: 10;
+            position: absolute;
+        }
+
+        .title-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px; 
+            margin-bottom: 5px;
+            opacity: 0;
+            animation: fadeIn 2.5s forwards 0.5s;
         }
 
         .title {
             font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
-            color: #ffb6c1; /* Warna pink romantis */
-            margin-bottom: 5px;
-            text-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
-            opacity: 0;
-            animation: fadeIn 2s forwards 0.5s;
+            font-size: 4rem;
+            color: #ffb6c1; 
+            text-shadow: 0 0 20px rgba(255, 182, 193, 0.8);
+            margin: 0;
+        }
+
+        .mini-profile {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-photo {
+            position: absolute;
+            width: 75%; 
+            height: 75%;
+            object-fit: cover;
+            border-radius: 50%; 
+            z-index: 1; 
+        }
+
+        .profile-frame {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2; 
+            pointer-events: none;
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.5));
         }
 
         .subtitle {
@@ -67,8 +104,8 @@
         .anniversary {
             font-size: 1.2rem;
             font-weight: 600;
-            color: #ffb6c1;
-            margin-bottom: 40px;
+            color: #ff9ecd;
+            margin-bottom: 45px;
             opacity: 0;
             animation: fadeIn 2s forwards 3.5s;
         }
@@ -77,22 +114,23 @@
             background-color: rgba(255, 182, 193, 0.1);
             border: 2px solid #ffb6c1;
             color: #ffb6c1;
-            padding: 12px 35px;
-            font-size: 1.1rem;
+            padding: 15px 40px;
+            font-size: 1.2rem;
             border-radius: 50px;
             cursor: pointer;
             font-family: 'Poppins', sans-serif;
             opacity: 0;
-            animation: fadeIn 2s forwards 4.5s;
-            transition: all 0.3s ease;
+            animation: fadeInPulse 2.5s forwards 4.5s;
+            transition: all 0.4s ease;
             box-shadow: 0 0 15px rgba(255, 182, 193, 0.3);
+            backdrop-filter: blur(5px);
         }
 
         .btn:hover {
             background-color: #ffb6c1;
-            color: #2b1029;
-            box-shadow: 0 0 25px rgba(255, 182, 193, 0.8);
-            transform: scale(1.05);
+            color: #2e1529;
+            box-shadow: 0 0 30px rgba(255, 182, 193, 0.9);
+            transform: scale(1.08);
         }
 
         /* === HALAMAN 2: BINGKAI ROMANTIS === */
@@ -104,65 +142,119 @@
             justify-content: center;
             width: 100%;
             height: 100%;
-            transition: opacity 0.5s ease-in; 
+            transition: opacity 0.8s ease-in; 
+            z-index: 10;
+            position: absolute; 
+        }
+
+        .frame-wrapper {
+            position: relative;
+            width: 90%;
+            max-width: 650px;
+            animation: floatFrame 6s ease-in-out infinite alternate;
         }
 
         .frame {
-            /* Perubahan: Latar gradasi pink, border pink, dan efek cahaya */
             background: linear-gradient(135deg, #fff0f5, #ffe4e1);
-            padding: 20px 20px 70px 20px; 
-            border-radius: 20px;
-            border: 3px solid #ff9ecd;
-            box-shadow: 0 0 40px rgba(255, 158, 205, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.8);
-            width: 90%;
-            max-width: 650px;
+            padding: 40px 30px 90px 30px; 
+            border-radius: 15px;
+            border: 8px double #ff9ecd;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6), inset 0 0 15px rgba(255, 255, 255, 0.9);
+            width: 100%;
             position: relative;
         }
 
-        /* Perubahan: Teks Kenangan yang lebih romantis di bawah foto */
         .frame::after {
             content: "Kenangan Terindah Kita ❤️";
             position: absolute;
-            bottom: 20px;
+            bottom: 30px;
             left: 0;
             width: 100%;
             text-align: center;
-            color: #d81b60; /* Warna merah muda tua/magenta */
+            color: #c2185b;
             font-family: 'Dancing Script', cursive;
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
         }
 
+        .corner-image {
+            position: absolute;
+            width: 220px; 
+            height: auto;
+            z-index: 15;
+            pointer-events: none;
+            filter: drop-shadow(0 5px 8px rgba(0,0,0,0.4));
+        }
+
+        .img-tl { top: -55px; left: -55px; transform: rotate(180deg); }
+        .img-tr { top: -55px; right: -55px; transform: scaleX(-1) rotate(180deg); }
+        .img-bl { bottom: -55px; left: -55px; transform: scaleY(-1) rotate(180deg); }
+        .img-br { bottom: -55px; right: -55px; transform: scale(-1, -1) rotate(180deg); }
+
+        /* === GALERI FOTO === */
         .gallery-container {
             width: 100%;
-            height: 320px;
+            height: 340px;
             overflow: hidden;
             border-radius: 10px;
             position: relative;
-            background-color: #ffebf0;
-            border: 1px solid #ffd1dc;
+            background-color: #2b1029;
+            border: 1px solid #ffb6c1;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
         }
 
         .marquee-track {
             display: flex;
+            align-items: center;
             height: 100%;
             width: max-content;
             animation: scrollGallery 25s linear infinite; 
+            padding: 0 10px;
         }
 
         .marquee-track img {
-            height: 100%;
+            height: 90%;
             width: auto;
             object-fit: cover;
-            margin-right: 8px;
+            margin-right: 15px;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            border: 3px solid white; 
         }
 
+        /* === EFEK BINTANG & KELOPAK BERJATUHAN === */
+        .background-fx {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: transparent;
+            z-index: 1; 
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .falling-star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        .falling-image {
+            position: absolute;
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.4));
+        }
+
+        /* === ANIMASI === */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInPulse {
+            0% { opacity: 0; transform: translateY(20px) scale(0.9); }
+            50% { opacity: 1; transform: translateY(0) scale(1.05); box-shadow: 0 0 20px rgba(255, 182, 193, 0.8); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         @keyframes scrollGallery {
@@ -170,37 +262,64 @@
             100% { transform: translateX(-50%); } 
         }
 
-        .stars {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: transparent;
-            z-index: -1;
+        @keyframes floatFrame {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-15px); }
+        }
+
+        @keyframes starFall {
+            0% { transform: translateY(-10vh) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(110vh) translateX(-10vw); opacity: 0; }
+        }
+
+        @keyframes imageFall {
+            0% { transform: translateY(-10vh); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(110vh); opacity: 0; }
         }
         
         @media (max-width: 600px) {
-            .title { font-size: 2.5rem; }
-            .subtitle { font-size: 1.8rem; }
-            .message { font-size: 1rem; }
-            .gallery-container { height: 220px; }
-            .frame::after { font-size: 1.5rem; }
+            .title-group { flex-direction: column; gap: 5px; margin-bottom: 15px; } 
+            .title { font-size: 3rem; }
+            .subtitle { font-size: 1.6rem; }
+            .anniversary { font-size: 1rem; }
+            .gallery-container { height: 250px; }
+            .frame { padding: 25px 15px 70px 15px; border-width: 5px; }
+            .frame::after { font-size: 1.8rem; bottom: 15px; }
+            .corner-image { width: 140px; } 
+            .img-tl { top: -35px; left: -35px; }
+            .img-tr { top: -35px; right: -35px; }
+            .img-bl { bottom: -35px; left: -35px; }
+            .img-br { bottom: -35px; right: -35px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 
-      PENTING (SOAL MUSIK): 
-      Jika file lagu kamu ada di satu folder yang sama persis dengan file index.html ini, gunakan:
-      <audio id="bgm" src="janjisuci.mp3" loop></audio>
-      
-      TAPI, jika kamu menaruh lagunya di dalam folder bernama "music", gunakan kode di bawah ini: 
-    -->
-    <audio id="bgm" src="janjisuci.mp3" loop></audio>
+    <!-- Musik Latar -->
+    <audio id="bgm" loop>
+        <source src="music/janjisuci.dat" type="audio/mpeg">
+    </audio>
 
-    <div class="stars" id="stars"></div>
+    <!-- Wadah Bintang Jatuh dan Gambar Kelopak -->
+    <div class="background-fx" id="bg-fx"></div>
 
+    <!-- HALAMAN 1 -->
     <div id="page1">
-        <h1 class="title">Teruntuk kekasihku, Firda Amelia</h1>
+        
+        <div class="title-group">
+            <h1 class="title">Teruntuk kekasihku, Firda Amelia</h1>
+            
+            <div class="mini-profile">
+                <!-- Foto Firda format .jpeg -->
+                <img src="photo/firda.jpeg" class="profile-photo" alt="Foto Firda">
+                <img src="assets/bingkaifirda.png" class="profile-frame" alt="Bingkai Mini">
+            </div>
+        </div>
+
         <h2 class="subtitle">Dari Alvin Nouristy</h2>
         <p class="message">Selamat Hari GirlFriend Sayang</p>
         <p class="anniversary">Dan Selamat atas 1 tahun berlangsungnya kita ❤️</p>
@@ -208,23 +327,36 @@
         <button class="btn" id="startBtn">Buka Kenangan Kita</button>
     </div>
 
+    <!-- HALAMAN 2 -->
     <div id="page2">
-        <div class="frame">
-            <div class="gallery-container">
-                <div class="marquee-track">
-                    <!-- Ganti src dengan foto kamu -->
-                    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400&q=80" alt="Foto 1">
-                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&q=80" alt="Foto 2">
-                    <img src="https://images.unsplash.com/photo-1494774112361-9c6bc76bb0de?w=400&q=80" alt="Foto 3">
-                    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=400&q=80" alt="Foto 4">
-                    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400&q=80" alt="Foto 5">
-                    
-                    <!-- Duplikat agar bisa berjalan terus menerus -->
-                    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400&q=80" alt="Foto 1">
-                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&q=80" alt="Foto 2">
-                    <img src="https://images.unsplash.com/photo-1494774112361-9c6bc76bb0de?w=400&q=80" alt="Foto 3">
-                    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=400&q=80" alt="Foto 4">
-                    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400&q=80" alt="Foto 5">
+        <div class="frame-wrapper">
+            
+            <!-- GAMBAR HIASAN SUDUT BINGKAI -->
+            <img src="assets/hiasan-bingkai.png" class="corner-image img-tl" alt="Hiasan Sudut">
+            <img src="assets/hiasan-bingkai.png" class="corner-image img-tr" alt="Hiasan Sudut">
+            <img src="assets/hiasan-bingkai.png" class="corner-image img-bl" alt="Hiasan Sudut">
+            <img src="assets/hiasan-bingkai.png" class="corner-image img-br" alt="Hiasan Sudut">
+
+            <!-- Bingkai Utama -->
+            <div class="frame">
+                <div class="gallery-container">
+                    <div class="marquee-track">
+                        
+                        <!-- FOTO KENANGAN (Perhatikan penulisan .jpeg dan .JPG) -->
+                        <img src="photo/foto1.jpeg" alt="Foto 1">
+                        <img src="photo/foto2.JPG" alt="Foto 2">
+                        <img src="photo/foto3.jpeg" alt="Foto 3">
+                        <img src="photo/foto4.jpeg" alt="Foto 4">
+                        <img src="photo/foto5.jpeg" alt="Foto 5">
+
+                        <!-- DUPLIKAT FOTO (Wajib disamakan formatnya) -->
+                        <img src="photo/foto1.jpeg" alt="Foto 1">
+                        <img src="photo/foto2.JPG" alt="Foto 2">
+                        <img src="photo/foto3.jpeg" alt="Foto 3">
+                        <img src="photo/foto4.jpeg" alt="Foto 4">
+                        <img src="photo/foto5.jpeg" alt="Foto 5">
+                        
+                    </div>
                 </div>
             </div>
         </div>
@@ -237,10 +369,8 @@
         const bgm = document.getElementById('bgm');
 
         startBtn.addEventListener('click', function() {
-            // Perintah memutar lagu
             bgm.play().catch(error => {
-                alert("Lagu tidak ditemukan! Pastikan nama file adalah janjisuci.mp3 dan lokasinya benar.");
-                console.log(error);
+                console.log("Audio play error:", error);
             });
 
             page1.style.opacity = '0';
@@ -252,36 +382,56 @@
                 setTimeout(() => {
                     page2.style.opacity = '1';
                 }, 50);
-            }, 500); 
+            }, 800); 
         });
 
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            for(let i = 0; i < 60; i++) {
+        function createFallingStars() {
+            const container = document.getElementById('bg-fx');
+            
+            for(let i = 0; i < 40; i++) {
                 const star = document.createElement('div');
-                star.style.position = 'absolute';
-                star.style.width = Math.random() * 3 + 'px';
-                star.style.height = star.style.width;
-                star.style.backgroundColor = i % 2 === 0 ? '#ffffff' : '#ffb6c1';
-                star.style.borderRadius = '50%';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.opacity = Math.random();
-                star.style.animation = `twinkle ${Math.random() * 3 + 2}s infinite alternate`;
-                starsContainer.appendChild(star);
+                star.className = 'falling-star';
+                
+                const size = Math.random() * 3 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.left = Math.random() * 120 + 'vw';
+                star.style.backgroundColor = i % 3 === 0 ? '#ffb6c1' : '#ffffff';
+                
+                const duration = Math.random() * 10 + 5; 
+                const delay = Math.random() * -20; 
+                
+                star.style.animation = `starFall ${duration}s linear ${delay}s infinite`;
+                container.appendChild(star);
             }
         }
-        
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes twinkle {
-                0% { opacity: 0.2; transform: scale(0.8); }
-                100% { opacity: 1; transform: scale(1.5); }
+
+        function createFallingImages() {
+            const container = document.getElementById('bg-fx');
+            
+            for(let i = 0; i < 80; i++) { 
+                const petalImg = document.createElement('img');
+                
+                petalImg.src = 'assets/kelopak.png';
+                petalImg.className = 'falling-image';
+                
+                petalImg.style.left = (Math.random() * 120 - 10) + 'vw'; 
+                
+                const size = Math.random() * 20 + 15; 
+                petalImg.style.width = size + 'px';
+                petalImg.style.height = 'auto';
+                
+                const duration = Math.random() * 6 + 5; 
+                const delay = Math.random() * -20; 
+                
+                petalImg.style.animation = `imageFall ${duration}s linear ${delay}s infinite`;
+                
+                container.appendChild(petalImg);
             }
-        `;
-        document.head.appendChild(style);
-        
-        createStars();
+        }
+
+        createFallingStars();
+        createFallingImages();
     </script>
 </body>
 </html>
