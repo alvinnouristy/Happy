@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kejutan untuk Firda Amelia ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            background: #0a0a0a;
+        }
+
+        /* ===== HALAMAN PERTAMA: INTRO SINEMATIK ===== */
+        #intro-page {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a0033 0%, #0d0015 50%, #1a0033 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+
+        #intro-page.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Efek Partikel Cahaya Jatuh (Seperti Kelopak Mawar) */
+        .particle {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .particle::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 200, 221, 0.8);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
+            animation: float 8s infinite ease-in;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) translateX(100px) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        /* Teks Utama */
+        .intro-content {
+            text-align: center;
+            z-index: 10;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-title {
+            font-size: clamp(24px, 6vw, 60px);
+            font-weight: 600;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ff69b4, #ffb6d9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+
+        .from-text {
+            font-size: clamp(16px, 3vw, 28px);
+            color: #ffb6d9;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: clamp(18px, 4vw, 32px);
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .description {
+            font-size: clamp(16px, 3vw, 24px);
+            color: #ffb6d9;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        /* Tombol Interaktif */
+        .open-button {
+            padding: 15px 40px;
+            font-size: 18px;
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(255, 105, 180, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .open-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 30px rgba(255, 105, 180, 0.8);
+        }
+
+        .open-button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        /* ===== HALAMAN KEDUA: GALERI CAROUSEL ===== */
+        #gallery-page {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 50%, #0a0a0a 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease-in;
+        }
+
+        #gallery-page.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .gallery-container {
+            width: 90%;
+            max-width: 800px;
+            height: 60vh;
+            background: rgba(255, 255, 255, 0.05);
+            border: 3px solid rgba(255, 105, 180, 0.5);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(255, 105, 180, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel {
+            display: flex;
+            height: 100%;
+            animation: scroll 20s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-200%);
+            }
+        }
+
+        .carousel-item {
+            flex: 0 0 calc(100% / 3);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            filter: brightness(0.95);
+        }
+
+        .carousel-item img:hover {
+            transform: scale(1.08) rotate(2deg);
+            filter: brightness(1.1) drop-shadow(0 0 20px rgba(255, 105, 180, 0.8));
+            box-shadow: 0 8px 30px rgba(255, 105, 180, 0.6), inset 0 0 20px rgba(255, 182, 217, 0.2);
+        }
+
+        /* Efek Bingkai Mewah untuk Foto */
+        .frame-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border: 8px solid;
+            border-image: linear-gradient(135deg, #ff69b4, #ffb6d9, #ff1493, #ffb6d9) 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 
+                0 0 30px rgba(255, 105, 180, 0.4),
+                inset 0 0 20px rgba(255, 182, 217, 0.1),
+                0 8px 32px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, rgba(255, 182, 217, 0.1), rgba(255, 105, 180, 0.05));
+        }
+
+        .frame-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%);
+            pointer-events: none;
+            border-radius: 15px;
+            z-index: 2;
+        }
+
+        .frame-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            border: 2px solid rgba(255, 182, 217, 0.3);
+            border-radius: 12px;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        /* Duplikasi carousel untuk seamless loop */
+        .carousel-item:nth-child(n+6) {
+            animation: none;
+        }
+
+        .gallery-title {
+            font-size: clamp(24px, 5vw, 36px);
+            color: #ffb6d9;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .gallery-subtitle {
+            font-size: clamp(14px, 2vw, 16px);
+            color: #ff69b4;
+            text-align: center;
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 28px;
+            }
+
+            .from-text {
+                font-size: 16px;
+            }
+
+            .subtitle {
+                font-size: 20px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .open-button {
+                padding: 12px 30px;
+                font-size: 14px;
+            }
+
+            .gallery-container {
+                height: 50vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-container {
+                height: 40vh;
+                padding: 15px;
+            }
+
+            .carousel-item {
+                padding: 5px;
+            }
+        }
+
+        /* Audio Tersembunyi */
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HALAMAN PERTAMA: INTRO ===== -->
+    <div id="intro-page">
+        <div class="intro-content">
+            <h1 class="main-title">Teruntuk kekasihku, Firda Amelia</h1>
+            <p class="from-text">Dari Alvin Nouristy</p>
+            <h2 class="subtitle">Selamat Hari GirlFriend Sayang</h2>
+            <p class="description">Dan Selamat atas 1 tahun berlangsungnya kita ❤️</p>
+            <button class="open-button" onclick="openGallery()">Buka Kenangan Kita</button>
+        </div>
+    </div>
+
+    <!-- ===== HALAMAN KEDUA: GALERI ===== -->
+    <div id="gallery-page">
+        <h2 class="gallery-title">✨ Momen Indah Kita ✨</h2>
+        <div class="gallery-container">
+            <div class="carousel">
+                <!-- 
+                    PETUNJUK PENGGANTIAN GAMBAR:
+                    Gantilah setiap link di bawah dengan URL foto Anda sendiri.
+                    Contoh: src="https://example.com/foto1.jpg"
+                    Atau jika menyimpan di folder lokal: src="photos/foto1.jpg"
+                    
+                    Minimum 5 foto untuk carousel yang smooth. 
+                    Bisa ditambah lebih banyak sesuai keinginan!
+                -->
+                <div class="carousel-item">
+                    <div class="frame-wrapper">
+                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=400&fit=crop" alt="Foto bersama 1">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="frame-wrapper">
+                        <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=400&h=400&fit=crop" alt="Foto bersama 2">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="frame-wrapper">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Foto bersama 3">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="frame-wrapper">
+                        <img src="https://images.unsplash.com/photo-1494774267527-ecf71bc3bfaa?w=400&h=400&fit=crop" alt="Foto bersama 4">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="frame-wrapper">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop" alt="Foto bersama 5">
+                    </div>
+                </div>
+                
+                <!-- Duplikasi untuk seamless infinite scroll -->
+                <div class="carousel-item">
+                    <div class="frame-wrapper">
+                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=400&fit=crop" alt="Foto bersama 1">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="frame-wrapper">
+                        <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=400&h=400&fit=crop" alt="Foto bersama 2">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="frame-wrapper">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Foto bersama 3">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="frame-wrapper">
+                        <img src="https://images.unsplash.com/photo-1494774267527-ecf71bc3bfaa?w=400&h=400&fit=crop" alt="Foto bersama 4">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="frame-wrapper">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop" alt="Foto bersama 5">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="gallery-subtitle">🎵 Dengarkan lagu istimewa sambil menikmati kenangan indah kita 🎵</p>
+    </div>
+
+    <!-- 
+        AUDIO / MUSIK:
+        PETUNJUK: Gantilah link di bawah dengan file musik Anda.
+        1. Copy file "janjisuci.mp3" ke folder "music/"
+        2. Musik akan otomatis diputar saat membuka galeri
+        Jika online: src="https://example.com/janjisuci.mp3"
+    -->
+    <audio id="background-music" loop volume="0.5">
+        <source src="music/janjisuci.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung audio HTML5.
+    </audio>
+
+    <script>
+        // Fungsi untuk membuat partikel cahaya jatuh
+        function createParticles() {
+            const introPage = document.getElementById('intro-page');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = -10 + 'px';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particle.style.animationDuration = (8 + Math.random() * 4) + 's';
+                introPage.appendChild(particle);
+            }
+        }
+
+        // Fungsi untuk membuka galeri dan memutar musik
+        function openGallery() {
+            // Fade out intro page
+            document.getElementById('intro-page').classList.add('fade-out');
+            
+            // Show gallery page
+            document.getElementById('gallery-page').classList.add('show');
+            
+            // Mulai putar musik
+            const audio = document.getElementById('background-music');
+            audio.volume = 0.5; // Set volume ke 50%
+            audio.play().catch(err => {
+                console.log('[v0] Musik tidak bisa diputar otomatis. Browser memerlukan interaksi pengguna terlebih dahulu.');
+            });
+        }
+
+        // Event listener untuk foto - interaktif hover
+        document.addEventListener('DOMContentLoaded', function() {
+            const frameWrappers = document.querySelectorAll('.frame-wrapper');
+            frameWrappers.forEach(frame => {
+                frame.addEventListener('mouseenter', function() {
+                    this.style.animation = 'pulse-glow 0.6s ease-out';
+                });
+            });
+
+            // Recreate pulse animation dynamically
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes pulse-glow {
+                    0% {
+                        box-shadow: 0 0 30px rgba(255, 105, 180, 0.4),
+                                    inset 0 0 20px rgba(255, 182, 217, 0.1),
+                                    0 8px 32px rgba(0, 0, 0, 0.3);
+                    }
+                    50% {
+                        box-shadow: 0 0 50px rgba(255, 105, 180, 0.8),
+                                    inset 0 0 30px rgba(255, 182, 217, 0.3),
+                                    0 12px 40px rgba(255, 105, 180, 0.4);
+                    }
+                    100% {
+                        box-shadow: 0 0 30px rgba(255, 105, 180, 0.4),
+                                    inset 0 0 20px rgba(255, 182, 217, 0.1),
+                                    0 8px 32px rgba(0, 0, 0, 0.3);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+
+        // Buat partikel saat halaman dimuat
+        window.addEventListener('load', createParticles);
+
+        // Keyboard shortcut - tekan 'M' untuk toggle musik
+        document.addEventListener('keydown', function(event) {
+            if (event.key.toLowerCase() === 'm') {
+                const audio = document.getElementById('background-music');
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
